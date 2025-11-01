@@ -24,8 +24,8 @@ jobs:
           java-version: '17'
           distribution: 'microsoft'
 
-      - name: Build with Maven (skip tests)
-        run: mvn clean install -DskipTests
+      - name: Build with Maven
+        run: mvn clean install
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -49,9 +49,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_D4B793CCE0EB4D2882D5B0967DFCB0C6 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_B534A41D5C4A4EA69D15CDC1193B219F }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_51DE80B4D77847D684731B331E11B837 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_E8D1E429B58444F1A151671EA8F24441 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_B64A65EACBB3490A93A3FD5623C7316E }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_EB1C2617D39D46D197D3E67C485A4408 }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
@@ -60,5 +60,4 @@ jobs:
           app-name: 'gestemedQA'
           slot-name: 'Production'
           package: '*.jar'
-
           
